@@ -4,7 +4,7 @@ export default {
 
     clearMocks: true,
 
-    collectCoverage: true, //! para hábilitar os relatórios de teste, por padrão e false
+    collectCoverage: false, //! para hábilitar os relatórios de teste, por padrão e false
 
     collectCoverageFrom: ['<rootDir>/src/modules/**/services/*.ts'], //! Mostra onde estarão os arquivos de teste
 
