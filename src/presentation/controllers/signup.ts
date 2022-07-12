@@ -13,6 +13,7 @@ export class SingUpController {
             return {
                 statusCode: 400,
                 body: new Error('Missing param error: email')
+
             }
         }
     }
