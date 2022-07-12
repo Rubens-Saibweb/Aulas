@@ -5,22 +5,14 @@ import { HttpRequest, HttpResponse } from "../protocols/http"
 export class SingUpController {
     handle(httprequest: HttpRequest): HttpResponse {
 
-        // if (!httprequest.body?.name) {
-        //     return badrequest(new MissingParamsError('name'))
+        const requiredFields = ["name", "email",
+            "password", "passwordConfirmation"]
 
-        // }
-        // if (!httprequest.body?.email) {
-        //     return badrequest(new MissingParamsError('email'))
-        // }
-
-        const requiredFields = ["name", "email"]
         for (const field of requiredFields) {
             if (!httprequest.body[field]) {
                 return badrequest(new MissingParamsError(field))
             }
 
         }
-
-
     }
 }
