@@ -1,37 +1,37 @@
-import { SingUpController } from "./signup"
+import { SingUpController } from './signup'
 
-describe("SingUp Controller ", () => {
-    test("shoud returt 400 if  no nome is provided", () => {
-        const sut = new SingUpController()
+describe('SingUp Controller', () => {
+    test('shoud returt 400 if  no nome is provided', () => {
+
+        const sut = new SingUpController();
 
         const httprequest = {
-            // name: "any_name",
-            emial: "any@email.com",
-            password: "any_password",
-            passwordConfirmation: "any_password",
+            body: {
+                // name: 'any_name',
+                emial: 'any@email.com',
+                password: 'any_password',
+                passwordConfirmation: 'any_password',
+            }
         }
         const httpResponse = sut.handle(httprequest)
 
         expect(httpResponse.statusCode).toBe(400)
         expect(httpResponse.body).toEqual(new Error('Missing param error: name'))
-
     })
 
-    test("shoud returt 400 if  no email is provided", () => {
+    test('shoud returt 400 if  no email is provided', () => {
         const sut = new SingUpController()
 
-        const httprequest = {
-            name: "any_name",
-            password: "any_password",
-            passwordConfirmation: "any_password",
+        const httpRequest = {
+            body: {
+                name: 'any_name',
+                password: 'any_password',
+                passwordConfirmation: 'any_password',
+            }
         }
-        const httpResponse = sut.handle(httprequest)
+        const httpResponse = sut.handle(httpRequest)
 
         expect(httpResponse.statusCode).toBe(400)
-        //expect(httpResponse.body).toEqual(new Error('Missing param error: email'))
-
+        expect(httpResponse.body).toEqual(new Error('Missing param error: email'))
     })
 })
-
-
-

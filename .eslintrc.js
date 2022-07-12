@@ -1,6 +1,20 @@
 module.exports = {
-    extends: 'standard-with-typescript',
-    parserOptions: {
-      project: './tsconfig.json'
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
     }
-  }
+}
